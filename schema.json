@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/tu-usuario/tu-repositorio/main/schema.json",
+  "$id": "https://raw.githubusercontent.com/Flores-Araceli/Proyecto/main/schema.json"
   "title": "Shalom Inventory Management Schema",
   "description": "JSON Schema for Shalom Inventory Management System",
   "type": "object",
