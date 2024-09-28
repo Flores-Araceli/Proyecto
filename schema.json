@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/tu-usuario/tu-repositorio/main/schema.json",
+  "title": "Shalom Inventory Management Schema",
+  "description": "JSON Schema for Shalom Inventory Management System",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Product"
+      }
+    },
+    "suppliers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Supplier"
+      }
+    },
+    "inventory": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/InventoryItem"
+      }
+    },
+    "returns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Return"
+      }
+    },
+    "alerts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Alert"
+      }
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/User"
+      }
+    }
+  },
+  "required": ["version", "products", "suppliers", "inventory", "returns", "alerts", "users"],
+  "definitions": {
+    "Product": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "stock": { "type": "integer" }
+      },
+      "required": ["id", "name", "price", "stock"]
+    },
+    "Supplier": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "contact": { "type": "string" }
+      },
+      "required": ["id", "name"]
+    },
+    "InventoryItem": {
+      "type": "object",
+      "properties": {
+        "productId": { "type": "string" },
+        "quantity": { "type": "integer" },
+        "location": { "type": "string" }
+      },
+      "required": ["productId", "quantity"]
+    },
+    "Return": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "productId": { "type": "string" },
+        "quantity": { "type": "integer" },
+        "reason": { "type": "string" }
+      },
+      "required": ["id", "productId", "quantity", "reason"]
+    },
+    "Alert": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "message": { "type": "string" },
+        "date": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "message", "date"]
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" }
+      },
+      "required": ["id", "name", "role"]
+    }
+  }
+}
